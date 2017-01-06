@@ -33,16 +33,30 @@ def sort_by_cohort(filename):
 
     """
 
-    all_students = []
-    winter_16 = []
-    spring_16 = []
-    summer_16 = []
-    fall_15 = []
-    ghosts = []
+    all_students = open(filename)
+    # all_students = all_students.rstrip()
+    # for student in all_students:
+    #     sstudent.rstrip().split("|")[4]
+    #     if student.rstrip()[4]:
+    #         print student
 
+    winter_16 = [student.rstrip().split("|")[0] + " " + student.rstrip().split("|")[1] for student in all_students if student.rstrip().split("|")[4] == "Winter 2016"]
+    winter_16.sort()
+    all_students = open(filename)
+    spring_16 = [student.rstrip().split("|")[0] + " " + student.rstrip().split("|")[1] for student in all_students if student.rstrip().split("|")[4] == "Spring 2016"]
+    spring_16.sort()
+    all_students = open(filename)
+    summer_16 = [student.rstrip().split("|")[0] + " " + student.rstrip().split("|")[1] for student in all_students if student.rstrip().split("|")[4] == "Summer 2016"]
+    summer_16.sort()
+    all_students = open(filename)
+    fall_15 = [student.rstrip().split("|")[0] + " " + student.rstrip().split("|")[1] for student in all_students if student.rstrip().split("|")[4] == "Fall 2015"]
+    fall_15.sort()
+    all_students = open(filename)
+    ghosts = [student.rstrip().split("|")[0] + " " + student.rstrip().split("|")[1] for student in all_students if student.rstrip().split("|")[4] == "G"]
+    ghosts.sort()
     # Code goes here
 
-    return all_students
+    return [winter_16, spring_16, summer_16, fall_15, ghosts]
 
 
 def students_by_house(filename):
@@ -165,7 +179,7 @@ def find_house_members_by_student_name(student_list):
 # Here is some useful code to run these functions!
 
 print unique_houses("cohort_data.txt")
-# print sort_by_cohort("cohort_data.txt")
+print sort_by_cohort("cohort_data.txt")
 # print hogwarts_by_house("cohort_data.txt")
 # all_students_data = all_students_tuple_list("cohort_data.txt")
 # print all_students_data
