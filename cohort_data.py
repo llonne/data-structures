@@ -13,10 +13,8 @@ def unique_houses(filename):
 
     """
 
-    houses = set()
-
-    # Code goes here
-
+    cohort = open(filename)
+    houses = set(student.split("|")[2] for student in cohort if student.split("|")[2] is not '')
     return houses
 
 
@@ -166,7 +164,7 @@ def find_house_members_by_student_name(student_list):
 
 # Here is some useful code to run these functions!
 
-# print unique_houses("cohort_data.txt")
+print unique_houses("cohort_data.txt")
 # print sort_by_cohort("cohort_data.txt")
 # print hogwarts_by_house("cohort_data.txt")
 # all_students_data = all_students_tuple_list("cohort_data.txt")
